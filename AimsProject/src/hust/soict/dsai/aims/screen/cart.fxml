@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Options">
+                  <items>
+                        <Menu mnemonicParsing="false" text="Update Store">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#addBookMenuItemChosen" text="Add Book" />
+                            <MenuItem mnemonicParsing="false" onAction="#addCDMenuItemChosen" text="Add CD" />
+                              <MenuItem mnemonicParsing="false" onAction="#addDVDMenuItemChosen" text="Add DVD" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#viewStoreMenuItemChosen" text="View Store" />
+                        <MenuItem mnemonicParsing="false" text="View Cart" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label text="CART" textFill="AQUA">
+               <font>
+                  <Font size="50.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label text="Filter: " />
+                  <TextField fx:id="tfFilter" promptText="What do you want to find?" />
+                  <RadioButton fx:id="radioBtnFilterId" mnemonicParsing="false" selected="true" text="By ID">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="filterCategory" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radionBtnFilterTitle" mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory" />
+               </children>
+            </HBox>
+            <TableView fx:id="tblMedia" prefHeight="610.0" prefWidth="829.0">
+              <columns>
+                <TableColumn fx:id="colMediaTitle" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="colMediaCategory" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="colMediaCost" prefWidth="75.0" text="Cost" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="50.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="185.0">
+               <children>
+                  <Label text="Total: " textFill="AQUA">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbTotalCost" text="0$" textFill="AQUA">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#btnPlaceOrderPressed" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <VBox prefHeight="90.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="90.0" prefWidth="832.0">
+               <children>
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" prefHeight="40.0" prefWidth="80.0" text="Play">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#btnRemovePressed" prefHeight="40.0" prefWidth="80.0" text="Remove" />
+               </children>
+               <padding>
+                  <Insets right="200.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
